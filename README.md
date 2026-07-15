@@ -2,17 +2,15 @@
 
 A project-based course that connects three questions:
 
-1. How do we approximate \(U(t)=e^{-iHt}\)?
+1. How do we approximate $U(t)=e^{-iHt}$?
 2. What logical circuit resources does the approximation require?
 3. What fault-tolerant machine could execute that circuit?
 
 The running example is the one-dimensional transverse-field Ising model (TFIM),
 
-\[
-H = J\sum_{i=0}^{n-2} Z_i Z_{i+1} + h\sum_{i=0}^{n-1} X_i.
-\]
+$$H = J\sum_{i=0}^{n-2} Z_i Z_{i+1} + h\sum_{i=0}^{n-1} X_i.$$
 
-This repository is designed for a physicist who already knows linear algebra and quantum mechanics and wants to build research-grade intuition through derivations, numerical experiments, circuits, tests, and progressively less idealized resource models.
+This repository is designed for a physicist who already knows linear algebra and quantum mechanics and wants to build research-grade intuition through derivations, numerical experiments, circuits, tests, and realistic resource estimation.
 
 ## Start here
 
@@ -88,10 +86,10 @@ Fault-Tolerant-Hamiltonian-Simulation/
 
 This course deliberately keeps these separate:
 
-- **Logical estimation:** logical qubits, arbitrary rotations, Clifford gates, CNOTs, \(T\)-count proxies, depth, and algorithmic error.
+- **Logical estimation:** logical qubits, arbitrary rotations, Clifford gates, CNOTs, $T$-count proxies, depth, and algorithmic error.
 - **Physical estimation:** code distance, physical qubits, code cycles, magic-state factories, runtime, and total failure probability.
 
-The included surface-code calculator is a **transparent teaching model**, not a production estimator. It exposes every assumption. The optional Microsoft Quantum Resource Estimator lab then shows how a modern tool explores architecture, QEC, and factory choices.
+The included surface-code calculator is a **transparent teaching model**, not a production estimator. It exposes every assumption. The optional Microsoft Quantum Resource Estimator lab then shows how a production tool handles practical complexity.
 
 ## Optional tooling
 
@@ -103,15 +101,13 @@ pip install -e ".[qualtran]" # hierarchical logical resource analysis
 pip install -e ".[qre]"      # Microsoft qdk.qre physical estimation
 ```
 
-The Qiskit example uses `SparsePauliOp`, `PauliEvolutionGate`, and product-formula synthesis. The QRE example uses the current `qdk.qre` Python interface rather than the older VS Code-only estimator workflow.
+The Qiskit example uses `SparsePauliOp`, `PauliEvolutionGate`, and product-formula synthesis. The QRE example uses the current `qdk.qre` Python interface rather than the older VS Code-only estimator when available.
 
 ## Capstone
 
 Estimate the resources for a TFIM simulation with a declared specification, for example
 
-\[
-n=16,\quad J=h=1,\quad t=10,\quad \epsilon_{\mathrm{total}}=10^{-3}.
-\]
+$$n=16,\quad J=h=1,\quad t=10,\quad \epsilon_{\mathrm{total}}=10^{-3}.$$
 
 Your final report should contain:
 
@@ -140,7 +136,7 @@ Create the empty GitHub repository before the final two commands. Do not initial
 
 ## References and live documentation
 
-The lessons point to primary papers and maintained documentation. Useful starting points include IBM Quantum Learning's Hamiltonian-simulation material, IBM's Qiskit API documentation, Microsoft's `qdk.qre` documentation, and Qualtran's bloq/resource-estimation documentation.
+The lessons point to primary papers and maintained documentation. Useful starting points include IBM Quantum Learning's Hamiltonian-simulation material, IBM's Qiskit API documentation, Microsoft's `qdk.qre` reference, and the open literature on Trotter-Suzuki formulas and surface codes.
 
 ## License
 
